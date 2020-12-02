@@ -4,7 +4,7 @@ let res = document.getElementById("res")
 let numArray = []
 
 //minha versão
-/*
+
 function adicionar() {
     let n = Number(num.value) 
 
@@ -40,7 +40,7 @@ function finalizar() {
         }
         res.innerHTML += `<p>A soma dos valores é ${numTotal}.</p>`
         
-        let numMedia = (numTotal) / (numOrder.length)
+        let numMedia = numTotal / numOrder.length
         res.innerHTML += `<p>A média dos valores é ${numMedia}.</p>`
     }
 }
@@ -51,10 +51,10 @@ function apagar() {
     numArray = []
     res.innerHTML = ""
 }
-*/
+
 
 // versão guanabara
-
+/*
 function isNumero(n) {
     if (Number(n) >= 1 && Number(n) <= 100) {
         return true // numero 1 a 100
@@ -90,15 +90,32 @@ function finalizar() {
         window.alert('Adicione valores antes de finalizar!')
     } else {
         let total = numArray.length
+        let maior = numArray[0]
+        let menor = numArray[0]
+        let soma = 0
+        
+        for (let pos in numArray) {
+            soma += numArray[pos]
+            if (numArray[pos] > maior) 
+                maior = numArray[pos]
+            if (numArray[pos] < menor)
+                menor = numArray[pos]
+        }
+        let media = soma / total
 
+        /* solução inscrito
+        let menor = Math.min.apply(Math, numArray)
+        let maior = Math.max.apply(Math, numArray)
+        */
 
         res.innerHTML = ``
         res.innerHTML += `<p>Foram adicionados ${total} valores.</p>`
-        res.innerHTML += `<p></p>`
-
+        res.innerHTML += `<p>O maior valor foi ${maior}.</p>`
+        res.innerHTML += `<p>O menos valor foi ${menor}.</p>`
+        res.innerHTML += `<p>A soma dos valores, temos ${soma}.</p>`
+        res.innerHTML += `<p>A média dos valores é ${media}.</p>`
     }
 }
-
 
 function apagar() {
     num.value = ""
@@ -106,3 +123,4 @@ function apagar() {
     numArray = []
     res.innerHTML = ""
 }
+*/
